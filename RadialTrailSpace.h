@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "AbstractTrailSpace.h";
+#import "AbstractTrailSpace.h"
 
 @interface RadialTrailSpace : AbstractTrailSpace {
 	NSPoint center;
@@ -24,7 +24,6 @@
 
 - initBounds:(NSRect)theRect vertexDensity:(int)theVertexDensity minVertexCount:(int)minVertexCount fullScreen:(BOOL)fullScreen;
 - initBounds:(NSRect)theRect vertexDensity:(int)theVertexDensity;
-- (void)dealloc;
 
 - (int)ringCount;
 - (float)radiusOfRing:(int)ring;

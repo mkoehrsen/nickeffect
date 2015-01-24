@@ -18,7 +18,6 @@
 }
 
 - initWithTail:(int)theTail head:(int)theHead;
-- (void)dealloc;
 
 - (int)tail;
 - (int)head;

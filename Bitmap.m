@@ -15,13 +15,12 @@
 - initSize:(int)theSize
 {
 	size = theSize;
-	map = NSZoneCalloc([self zone],(theSize/BIT_INTSIZE)+1,sizeof(int));
+	map = NSZoneCalloc(nil,(theSize/BIT_INTSIZE)+1,sizeof(int));
 	return [super init];
 }
 - (void)dealloc
 {
-	NSZoneFree([self zone],map);
-	[super dealloc];
+	NSZoneFree(nil,map);
 }
 
 - (int)size

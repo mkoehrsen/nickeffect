@@ -15,7 +15,6 @@
 }
 
 - initSize:(int)theSize;
-- (void)dealloc;
 
 - (int)size;
 

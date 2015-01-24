@@ -18,7 +18,6 @@
 }
 
 - initRadius:(float)theRadius vertexCount:(int)theCount;
-- (void)dealloc;
 
 - (float)radius;
 - (int)vertexCount;
@@ -35,11 +34,6 @@
 	radius = theRadius;
 	vertexMap = [[Bitmap alloc] initSize:theCount];
 	return [super init];
-}
-- (void)dealloc
-{
-	[vertexMap release];
-	[super dealloc];
 }
 
 - (float)radius
@@ -94,14 +88,14 @@
 	}
 	
 	while (radius < maxRadius) {
-		[rings addObject:[[[RTSRing alloc] initRadius:radius vertexCount:vertexCount] autorelease]];
+		[rings addObject:[[RTSRing alloc] initRadius:radius vertexCount:vertexCount]];
 		radius += vertexSpacing;
 		if (radius*2*M_PI > (vertexCount * vertexSpacing * 2)) vertexCount *= 2;
 	}
 	
 	int i;
 	ringCount = [rings count];
-	ringSizes = NSZoneCalloc([self zone],ringCount,sizeof(int));
+	ringSizes = NSZoneCalloc(nil,ringCount,sizeof(int));
 	
 	for (i=0;i<ringCount;i++) ringSizes[i] = [[rings objectAtIndex:i] vertexCount];
 
@@ -127,9 +121,7 @@
 
 - (void)dealloc
 {
-	[rings release];
-	NSZoneFree([self zone],ringSizes);
-	[super dealloc];
+	NSZoneFree(nil,ringSizes);
 }
 
 - (int)ringCount 
@@ -180,7 +172,7 @@
 	int ringIx = RTS_RING_IX(vertex);
 	int vertexIx = RTS_VERTEX_IX(vertex);
 	
-	NSAssert2(ringIx>=0 && ringIx<[rings count],@"Ring index out of bounds:%d; vertex:%s",ringIx,vertex);
+	NSAssert2(ringIx>=0 && ringIx<[rings count],@"Ring index out of bounds:%d; vertex:%d",ringIx,vertex);
 	[(RTSRing*)[rings objectAtIndex:ringIx] markVertex:vertexIx asOccupied:occupied];
 }
 	
@@ -190,7 +182,7 @@
 
 	int ringIx = RTS_RING_IX(vertex);
 	int vertexIx = RTS_VERTEX_IX(vertex);		
-	NSAssert2(ringIx>=0 && ringIx<[rings count],@"Ring index out of bounds:%d; vertex:%s",ringIx,vertex);
+	NSAssert2(ringIx>=0 && ringIx<[rings count],@"Ring index out of bounds:%d; vertex:%d",ringIx,vertex);
 	
 	RTSRing *ring = [rings objectAtIndex:ringIx];
 	
@@ -199,7 +191,7 @@
 	}
 	else {
 		if (ringIx < [rings count] - 1) {
-			return RTS_MAKE_VERTEX(ringIx+1,0);
+			return RTS_MAKE_VERTEX((ringIx+1),0);
 		}
 		else {
 			return -1;
@@ -211,7 +203,7 @@
 {
 	int ringIx = RTS_RING_IX(vertex);
 	int vertexIx = RTS_VERTEX_IX(vertex);
-	NSAssert2(ringIx>=0 && ringIx<[rings count],@"Ring index out of bounds:%d; vertex:%s",ringIx,vertex);
+	NSAssert2(ringIx>=0 && ringIx<[rings count],@"Ring index out of bounds:%d; vertex:%d",ringIx,vertex);
 
 	NSPoint result;
 	RTSRing *ring = [rings objectAtIndex:ringIx];

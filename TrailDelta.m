@@ -13,27 +13,22 @@
 
 + (TrailDelta *)extension:(TrailSegment *)seg color:(NSColor *)color
 {
-	return [[[TrailDelta alloc] initWithType:TDExtension segment:seg color:color] autorelease];
+	return [[TrailDelta alloc] initWithType:TDExtension segment:seg color:color];
 }
 + (TrailDelta *)truncation:(TrailSegment *)seg
 {
-	return [[[TrailDelta alloc] initWithType:TDTruncation segment:seg color:nil] autorelease];
+	return [[TrailDelta alloc] initWithType:TDTruncation segment:seg color:nil];
 }
 
 - initWithType:(TDType)theType segment:(TrailSegment *)theSegment color:(NSColor *)theColor
 {
 	type = theType;
-	segment = [theSegment retain];
-	color = [theColor retain];
+	segment = theSegment;
+	color = theColor;
 	
 	return [super init];
 }
 
-- (void)dealloc {
-	[segment release];
-	[color release];
-	[super dealloc];
-}
 
 - (TDType)type
 {

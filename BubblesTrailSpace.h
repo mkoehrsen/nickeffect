@@ -28,7 +28,6 @@
 }
 
 - initBounds:(NSRect)theRect vertexDensity:(int)theVertexDensity;
-- (void)dealloc;
 
 - (int)width;
 - (int)height;

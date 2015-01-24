@@ -32,11 +32,6 @@
 	return [super initBounds:theRect vertexDensity:theVertexDensity];
 }
 
-- (void)dealloc
-{
-	[vertexMap release];
-	[super dealloc];
-}
 
 - (int)width 
 {

@@ -20,11 +20,6 @@
 	return [super init];
 }
 
-- (void)dealloc
-{
-	[headSegment release];
-	[super dealloc];
-}
 
 - (int)tail 
 {
@@ -45,7 +40,7 @@
 {
 	// Should't be called more than once
 	NSAssert(headSegment==nil,@"Segment may only be set if previously nil");
-	headSegment = [theSegment retain];
+	headSegment = theSegment;
 }
 
 @end

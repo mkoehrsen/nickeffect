@@ -14,7 +14,7 @@
 
 + (Trail *)trailInSpace:(AbstractTrailSpace *)theSpace tail:(int)theTail head:(int)theHead
 {
-	return [[[Trail alloc] initWithSpace:theSpace tail:theTail head:theHead] autorelease];
+	return [[Trail alloc] initWithSpace:theSpace tail:theTail head:theHead];
 }
 
 - initWithSpace:(AbstractTrailSpace *)theSpace tail:(int)theTail head:(int)theHead
@@ -23,26 +23,18 @@
 	headSegment = [[TrailSegment alloc] initWithTail:theTail head:theHead];
 	
 	// tailSegment reference retains separately so we don't have to special-case later
-	tailSegment = [headSegment retain];
+	tailSegment = headSegment;
 
 	[trailSpace markVertex:theTail asOccupied:YES];
 	[trailSpace markVertex:theHead asOccupied:YES];
 	
-	color = [[NSColor colorWithDeviceHue:SSRandomFloatBetween(0.0,1.0) 
+	color = [NSColor colorWithDeviceHue:SSRandomFloatBetween(0.0,1.0) 
 								saturation:SSRandomFloatBetween(0.0,1.0) 
-								brightness:SSRandomFloatBetween(0.0,1.0) alpha:1.0] retain];
+								brightness:SSRandomFloatBetween(0.0,1.0) alpha:1.0];
 	
 	return [super init];
 }
 
-- (void)dealloc 
-{
-	[headSegment release];
-	[tailSegment release];
-	[color release];
-
-	[super dealloc];
-}
 
 - (TrailDelta *)update
 {
@@ -80,19 +72,15 @@
 	
 	if (newHead >= 0) {
 		TrailSegment *newHeadSegment = [[TrailSegment alloc] initWithTail:[headSegment head] head:newHead];
-		TrailSegment *oldHeadSegment = headSegment;
 		[headSegment setHeadSegment:newHeadSegment];
-		headSegment = [newHeadSegment retain];
+		headSegment = newHeadSegment;
 		[trailSpace markVertex:newHead asOccupied:YES];
 		delta = [TrailDelta extension:newHeadSegment color:color];
-		[oldHeadSegment release];
 	}
 	else if (headSegment != tailSegment) {
-		TrailSegment *oldTailSegment = tailSegment;
 		delta = [TrailDelta truncation:tailSegment];
 		[trailSpace markVertex:[tailSegment tail] asOccupied:NO];
 		tailSegment = [tailSegment headSegment];
-		[oldTailSegment release];
 	}
 	
 	return delta;

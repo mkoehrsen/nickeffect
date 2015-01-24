@@ -58,12 +58,6 @@
 	return [super init];
 }
 
-- (void)dealloc
-{
-	[trails release];
-	
-	[super dealloc];
-}
 
 - (NSRect)bounds
 {

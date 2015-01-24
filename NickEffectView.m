@@ -51,15 +51,9 @@ NSUserDefaults *userDefaults = nil;
     return self;
 }
 
-- (void)dealloc {
-	[trailSpace release];
-	[configureSheet release];
-	[super dealloc];
-}
 
 - (void)reinitTrailSpace
 {
-	[trailSpace release];
 	
 	NSUserDefaults *userDefaults = [[self class] userDefaults];
 	
@@ -88,7 +82,6 @@ NSUserDefaults *userDefaults = nil;
 - (void)stopAnimation
 {
     [super stopAnimation];
-	[trailSpace release];
 	trailSpace = nil;
 }
 

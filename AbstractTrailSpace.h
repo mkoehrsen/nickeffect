@@ -50,7 +50,6 @@ static inline void TSShuffleVertices(int *v,int count) {
 + (id)trailSpaceClassNamed:(NSString *)theDisplayName;
 
 - initBounds:(NSRect)theRect vertexDensity:(int)theVertexDensity;
-- (void)dealloc;
 
 - (NSRect)bounds;
 - (int)vertexDensity;

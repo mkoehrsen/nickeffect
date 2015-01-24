@@ -25,7 +25,6 @@ typedef enum _TDType {
 + (TrailDelta *)truncation:(TrailSegment *)seg;
 
 - initWithType:(TDType)theType segment:(TrailSegment *)theSegment color:(NSColor *)color;
-- (void)dealloc;
 
 - (TDType)type;
 - (TrailSegment *)segment;

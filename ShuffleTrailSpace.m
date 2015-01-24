@@ -30,11 +30,6 @@
 	
 	return [[[AbstractTrailSpace trailSpaceClassNamed:name] alloc] initBounds:theRect vertexDensity:theVertexDensity];
 }
-- (void)dealloc
-{
-	[trailSpace release];
-	[super dealloc];
-}
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {

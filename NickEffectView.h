@@ -8,7 +8,7 @@
 
 #import <ScreenSaver/ScreenSaver.h>
 
-#import "AbstractTrailSpace.h";
+#import "AbstractTrailSpace.h"
 
 @interface NickEffectView : ScreenSaverView 
 {
@@ -22,7 +22,6 @@
 }
 
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview;
-- (void)dealloc;
 
 - (void)startAnimation;
 - (void)stopAnimation;

@@ -17,7 +17,6 @@
 + (NSString *)displayName;
 
 - initBounds:(NSRect)theRect vertexDensity:(int)theVertexDensity;
-- (void)dealloc;
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;
 - (void)forwardInvocation:(NSInvocation *)anInvocation;

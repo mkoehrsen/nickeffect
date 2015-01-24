@@ -18,35 +18,17 @@
 
 #import <ScreenSaver/ScreenSaver.h> // For SSRandomIntBetween
 
-id *trailSpaceClasses = NULL;
+#define TRAIL_SPACE_CLASSES {[CartesianTrailSpace class],[TrianglesTrailSpace class],\
+                             [RadialTrailSpace class],[FullScreenRadialTrailSpace class],[ShuffleTrailSpace class],nil}
 
 @implementation AbstractTrailSpace
-
-+ (void)_initTrailSpaceClasses
-{
-	if (trailSpaceClasses == NULL) {
-		id c[] = {[CartesianTrailSpace class],[TrianglesTrailSpace class],//[BubblesTrailSpace class],
-					[RadialTrailSpace class],[FullScreenRadialTrailSpace class],[ShuffleTrailSpace class],nil};
-		int count = 0;
-		int i;
-		
-		while (c[count] != nil) count++;
-		
-		trailSpaceClasses = NSZoneCalloc([self zone],count+1,sizeof(id));
-		for (i=0;i<count;i++) {
-			trailSpaceClasses[i] = c[i];
-		}
-	}
-}
-
 
 + (NSArray *)trailSpaceDisplayNames
 {
 	NSMutableArray *result = [NSMutableArray array];
 	int i;
+	id trailSpaceClasses[] = TRAIL_SPACE_CLASSES;
 	
-	[self _initTrailSpaceClasses];
-		
 	for (i=0;trailSpaceClasses[i] != nil;i++) {
 		[result addObject:[trailSpaceClasses[i] displayName]];
 	}
@@ -58,8 +40,7 @@ id *trailSpaceClasses = NULL;
 {
 	id result = nil;
 	int i;
-
-	[self _initTrailSpaceClasses];
+	id trailSpaceClasses[] = TRAIL_SPACE_CLASSES;
 	
 	for (i=0;trailSpaceClasses[i] != nil;i++) {
 		if ([theDisplayName isEqualToString:[trailSpaceClasses[i] displayName]]) {

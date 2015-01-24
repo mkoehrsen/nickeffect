@@ -149,8 +149,8 @@
 // vertex ix of the outer neighbor, assuming not on the outermost ring.  Used by RTS_OUTER_NEIGHBOR
 #define RTS_OUTER_VERTEX_IX(vertex) (RTS_VERTEX_IX(vertex) * (ringSizes[RTS_RING_IX(vertex)+1]/ringSizes[RTS_RING_IX(vertex)]))
 
-#define RTS_INNER_NEIGHBOR(vertex) (RTS_RING_IX(vertex) > 0 ? RTS_MAKE_VERTEX(RTS_RING_IX(vertex)-1,RTS_INNER_VERTEX_IX(vertex)) : -1 )
-#define RTS_OUTER_NEIGHBOR(vertex) (RTS_RING_IX(vertex) < (ringCount-1) ? RTS_MAKE_VERTEX(RTS_RING_IX(vertex)+1,RTS_OUTER_VERTEX_IX(vertex)) : -1 )
+#define RTS_INNER_NEIGHBOR(vertex) (RTS_RING_IX(vertex) > 0 ? RTS_MAKE_VERTEX((RTS_RING_IX(vertex)-1),RTS_INNER_VERTEX_IX(vertex)) : -1 )
+#define RTS_OUTER_NEIGHBOR(vertex) (RTS_RING_IX(vertex) < (ringCount-1) ? RTS_MAKE_VERTEX((RTS_RING_IX(vertex)+1),RTS_OUTER_VERTEX_IX(vertex)) : -1 )
 
 #define RTS_CLKWISE_NEIGHBOR(vertex) (RTS_MAKE_VERTEX(RTS_RING_IX(vertex),(RTS_VERTEX_IX(vertex)+RTS_RING_SIZE(vertex)-1)%RTS_RING_SIZE(vertex)))
 #define RTS_CCLKWISE_NEIGHBOR(vertex) (RTS_MAKE_VERTEX(RTS_RING_IX(vertex),(RTS_VERTEX_IX(vertex)+1)%RTS_RING_SIZE(vertex)))

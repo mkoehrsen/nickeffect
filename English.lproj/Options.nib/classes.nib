@@ -1,0 +1,21 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {acceptConfiguration = id; cancelConfiguration = id; }; 
+            CLASS = NickEffectView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                animationSpeedSlider = id; 
+                configureSheet = id; 
+                geometryPopup = id; 
+                pointDensitySlider = id; 
+                trailDensitySlider = id; 
+            }; 
+            SUPERCLASS = ScreenSaverView; 
+        }, 
+        {CLASS = OptionsController; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = ScreenSaverView; LANGUAGE = ObjC; SUPERCLASS = NSView; }
+    ); 
+    IBVersion = 1; 
+}

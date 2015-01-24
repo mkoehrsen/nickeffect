@@ -80,17 +80,19 @@
 	
 	if (newHead >= 0) {
 		TrailSegment *newHeadSegment = [[TrailSegment alloc] initWithTail:[headSegment head] head:newHead];
-		[headSegment autorelease];
+		TrailSegment *oldHeadSegment = headSegment;
 		[headSegment setHeadSegment:newHeadSegment];
 		headSegment = [newHeadSegment retain];
 		[trailSpace markVertex:newHead asOccupied:YES];
 		delta = [TrailDelta extension:newHeadSegment color:color];
+		[oldHeadSegment release];
 	}
 	else if (headSegment != tailSegment) {
-		[tailSegment autorelease];
+		TrailSegment *oldTailSegment = tailSegment;
 		delta = [TrailDelta truncation:tailSegment];
 		[trailSpace markVertex:[tailSegment tail] asOccupied:NO];
 		tailSegment = [tailSegment headSegment];
+		[oldTailSegment release];
 	}
 	
 	return delta;

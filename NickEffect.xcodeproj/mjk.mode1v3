@@ -327,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>05A0F4531A7448BF0035C52A</string>
+										<string>05B1C5DC1A74494C005B5D8B</string>
 										<key>history</key>
 										<array>
 											<string>05D6FB7C11B9B50D0076E474</string>
@@ -335,7 +335,7 @@
 											<string>05D6FB7E11B9B50D0076E474</string>
 											<string>05D6FB7F11B9B50D0076E474</string>
 											<string>05D6FB8011B9B50D0076E474</string>
-											<string>05D505E7156DB4B70091B9DF</string>
+											<string>05A0F4531A7448BF0035C52A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -347,14 +347,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {957, 489}}</string>
+								<string>{{0, 0}, {957, 483}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 56 1276 722 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>489pt</string>
+							<string>483pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -367,14 +367,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 494}, {957, 187}}</string>
+								<string>{{0, 488}, {957, 193}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 56 1276 722 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>187pt</string>
+							<string>193pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -393,9 +393,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>05A0F4361A7446090035C52A</string>
+				<string>05B1C5DD1A74494C005B5D8B</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>05A0F4371A7446090035C52A</string>
+				<string>05B1C5DE1A74494C005B5D8B</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -534,7 +534,7 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>05FCC00E117CC14E008521DB</string>
-		<string>/Users/mjk/Projects/NickEffect/NickEffect.xcodeproj</string>
+		<string>/Users/mjk/nickeffect/NickEffect.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 56 1276 722 0 0 1280 778 </string>
@@ -616,7 +616,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>05FCC00E117CC14E008521DB</string>
-				<string>05A0F4381A7446090035C52A</string>
+				<string>05B1C5D71A744939005B5D8B</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
